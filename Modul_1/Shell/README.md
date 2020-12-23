@@ -7,12 +7,14 @@ Delete rows  without digits, remove corrupted cells IMPORTANT\t\t, remove intro 
 
 sed 's/\(^[^0-9]\+$\|IMPORTANT!\?		\|[Ii][Ss][Ss][Nn]:\? \? \?\)//g' 2020-12-04-Article_list_dirty.tsv > 2020-12-04-Article_list_ISSN-year.tsv
 
-NOTE: there are 2 tabs after IMPORTANT
+NOTE: there are 2 tabs after IMPORTANT (i.e. ... IMPORTANT!\?\t\t\ ...) 
 
 2. step
 Cut the unneeded columns (only ISSN and year columns are needed)
 
 cut -d'	' -f5,12 2020-12-04-Article_list_ISSN-year.tsv > 2020-12-04-Article_list_ISSN-year_v2.tsv
+
+NOTE: a tab as delimiter (i.e. -d'\t')
 
 3. step
 replace line ending to CRLF
